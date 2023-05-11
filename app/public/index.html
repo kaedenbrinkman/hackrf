@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="HackRF" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>HackRF</title>
+  <script src="https://unpkg.com/css-doodle@0.17.2/css-doodle.min.js"></script>
+</head>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root" class="w-100 h-100"></div>
+  <css-doodle style="z-index: -1">
+    <style>
+      @grid: 50x1 / 50vmin;
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+      :container {
+        perspective: 23vmin;
+      }
+
+      background: @m(@r(200, 240),
+        radial-gradient(@p(#00b8a9, #f8f3d4, #f6416c, #ffde7d) 15%,
+          transparent 50%) @r(100%) @r(100%) / @r(1%, 3%) @lr no-repeat);
+
+      @size: 80%;
+      @place-cell: center;
+
+      border-radius: 50%;
+      transform-style: preserve-3d;
+      animation: scale-up 160s linear infinite;
+      animation-delay: calc(@i * -.4s);
+
+      @keyframes scale-up {
+        0% {
+          opacity: 0;
+          transform: translate3d(0, 0, 0) rotate(0);
+        }
+
+        10% {
+          opacity: 1;
+        }
+
+        95% {
+          transform:
+            translate3d(0, 0, @r(50vmin, 55vmin)) rotate(@r(-360deg, 360deg));
+        }
+
+        100% {
+          opacity: 0;
+          transform: translate3d(0, 0, 1vmin);
+        }
+      }
+    </style>
+  </css-doodle>
+</body>
+
 </html>

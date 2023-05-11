@@ -1,0 +1,15 @@
+.chamberlain-bg {
+  background: url('assets/glow.png');
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
